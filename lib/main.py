@@ -1,15 +1,11 @@
-
 try:
-    import os
-    import sys
-    import signal
     import argparse
     from lib.core.core import Core
     from lib.core.logger import Logger
-    from lib.fussion import Fussion
+    from manager import WinoseManager
 except ImportError, err:
     from lib.core.core import Core
-    from lib.fussion import Fussion
+    from manager import WinoseManager
     Core.print_error(err)
 
 __version__ = '0.0.1-dev'
@@ -44,16 +40,8 @@ class Main(object):
                 except Exception, err:
                     Core.print_error(err)
 
-                self._run()
-
         def _run(self):
-
-                signal.signal(signal.SIGINT, self.signal_handler)
                 try:
-                    Fussion(self.args, self.__logger)
+                    manager = WinoseManager()
                 except Exception, err:
                     Core.print_error(err)
-
-        def signal_handler(self, signal, frame):
-                """ set signal """
-                Core.print_error("Bye")
