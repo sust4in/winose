@@ -2,10 +2,10 @@ try:
     import argparse
     from lib.core.core import Core
     from lib.core.logger import Logger
-    from manager import WinoseManager
+    from lib.manager import WinoseManager
 except ImportError, err:
     from lib.core.core import Core
-    from manager import WinoseManager
+    from lib.manager import WinoseManager
     Core.print_error(err)
 
 __version__ = '0.0.1-dev'
@@ -42,6 +42,6 @@ class Main(object):
 
         def _run(self):
                 try:
-                    manager = WinoseManager()
+                    WinoseManager.Manager(self.args.process)
                 except Exception, err:
                     Core.print_error(err)
