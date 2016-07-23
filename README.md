@@ -1,6 +1,6 @@
 # winose
 ***
-
+NOT FINISHED YET!
 > An application layer packet sniffer for windows applications
 
 Requirements: 
